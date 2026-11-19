@@ -10,7 +10,10 @@ void S3D_DrawLineX(S3D_Renderer* renderer, int row, int x0, int x1, Color color)
 	bounds.max.y = row;
 	assert(S3D_CheckScreenContainsRec(renderer, bounds));
 
-	
+	for (int x = x0; x <= x1; x++)
+	{
+		S3D_SetPixelColor(renderer->color_buffer, x, row, color);
+	}
 		
 }
 
@@ -25,6 +28,10 @@ void S3D_DrawLineY(S3D_Renderer* renderer, int col, int y0, int y1, Color color)
 	bounds.max.x = col;
 	assert(S3D_CheckScreenContainsRec(renderer, bounds));
 
+	for (int y = y0; y <= y1; y++)
+	{
+		S3D_SetPixelColor(renderer->color_buffer, col, y, color);
+	}
 }
 
 void S3D_DrawLine(S3D_Renderer* renderer, int x0, int y0, int x1, int y1, Color color0, Color color1 = BLANK)
