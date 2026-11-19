@@ -46,6 +46,30 @@ void S3D_DrawLine(S3D_Renderer* renderer, int x0, int y0, int x1, int y1, Color 
 	bounds.max.y = bounds.min.y + abs(dy);
 	if (!S3D_CheckScreenContainsRec(renderer, bounds)) return;
 
+	int steps;
+
+	if (abs(dx) > abs(dy))
+	{
+		steps = abs(dx);
+	}
+	else
+	{
+		steps = abs(dy);
+	}
+
+	float xStep = dx / (float)steps;
+	float yStep = dy / (float)steps;
+
+	float x = (float)x0;
+	float y = (float)y0;
+
+	for (int i = 0; i <= steps; i++)
+	{
+		S3D_SetPixelColor(renderer->color_buffer, (int)x, (int)y, color0);
+		x += xStep;
+		y += yStep;
+	}
+
 	// let steps = abs dx if abs dx > abs dy, else abs dy
 	// abs = "absolute value"
 
