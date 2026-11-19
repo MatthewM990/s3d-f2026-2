@@ -71,5 +71,7 @@ public:
 		S3D_DrawLineX(renderer, 100, 0, renderer->width - 1, GREEN);
 		S3D_DrawLineY(renderer, 100, 0, renderer->height - 1, RED);
 		S3D_DrawLine(renderer, 100, 100, 500, 500, ORANGE);
+		S3D_DrawRectangle(renderer, { 200, 200, 300, 300 }, BLUE);
+		S3D_DrawRectangleLines(renderer, { 600, 600, 500, 500 }, GOLD);
 	}
 };
