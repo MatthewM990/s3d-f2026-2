@@ -67,5 +67,9 @@ public:
 	{
 		S3D_ClearColor(renderer, BLACK);
 		S3D_DrawCircle(renderer, renderer->width / 2, renderer->height / 2, 5, MAGENTA);
+
+		S3D_DrawLineX(renderer, 100, 0, renderer->width - 1, GREEN);
+		S3D_DrawLineY(renderer, 100, 0, renderer->height - 1, RED);
+		S3D_DrawLine(renderer, 100, 100, 500, 500, ORANGE);
 	}
 };
