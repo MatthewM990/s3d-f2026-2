@@ -73,5 +73,16 @@ public:
 		S3D_DrawLine(renderer, 100, 100, 500, 500, ORANGE);
 		S3D_DrawRectangle(renderer, { 200, 200, 300, 300 }, BLUE);
 		S3D_DrawRectangleLines(renderer, { 600, 600, 500, 500 }, GOLD);
+
+		Vector2i mouse = S3D_GetMousePosition(renderer);
+		S3D_DrawLine(renderer, renderer->width / 2, renderer->height / 2, mouse.x, mouse.y, RED);
+
+		int radius = 5;
+
+		if (S3D_CheckScreenContainsCircle(renderer, mouse.x, mouse.y, radius))
+		{
+			S3D_DrawCircle(renderer, mouse.x, mouse.y, radius, GOLD);
+		}
+
 	}
 };
